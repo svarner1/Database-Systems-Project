@@ -14,6 +14,7 @@ CREATE TABLE payment(
     date                DATE,
     status              VARCHAR(25) NOT NULL,
     FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE
+    FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE
 );
 
 CREATE TABLE seller(
