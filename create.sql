@@ -67,3 +67,24 @@ CREATE TABLE order(
     FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE
     FOREIGN KEY (cartID) REFERENCES cart(id) ON DELETE CASCADE
 );
+
+CREATE TABLE seller_history(
+    sellerID            INTEGER NOT NULL,
+    orderID             INTEGER NOT NULL,
+    revenue             INTEGER NOT NULL,
+    FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE
+);
+
+CREATE TABLE delivery (
+    deliveryID          SERIAL PRIMARY KEY,
+    customerUsername    VARCHAR(25),
+    orderID             INTEGER NOT NULL,
+    delivery_status     TEXT NOT NULL,              
+    sellerID            INTEGER NOT NULL,
+    FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE
+);
+
+CREATE TABLE category (
+    category_name       SERIAL PRIMARY KEY,
+    category_description TEXT NOT NULL,
+);
