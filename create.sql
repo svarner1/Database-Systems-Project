@@ -7,11 +7,14 @@ CREATE TABLE customer(
 );
 
 CREATE TABLE payment(
-    id                  SERIAL PRIMARY KEY,
-<<<<<<< HEAD
-    customerUsername    VARCHAR(25),
-    sellerID            in
-)
+    id                  SERIAL PRIMARY KEY,          
+    customerUsername    VARCHAR(25) NOT NULL,
+    sellerID            INTEGER NOT NULL,
+    type                VARCHAR(10) NOT NULL,
+    date                DATE,
+    status              VARCHAR(25) NOT NULL,
+    FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE
+);
 
 CREATE TABLE seller_history(
     sellerID            INTEGER NOT NULL,
@@ -24,24 +27,15 @@ CREATE TABLE delivery (
     deliveryID          SERIAL PRIMARY KEY,
     customerUsername    VARCHAR(25),
     orderID             INTEGER NOT NULL,
-    status              
-    sellerID            INTEGER NOT NULL
-
+    delivery_status     TEXT NOT NULL,              
+    sellerID            INTEGER NOT NULL,
+    FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE
 );
 
 CREATE TABLE category (
-
-
-    
+    category_name       SERIAL PRIMARY KEY,
+    category_description TEXT NOT NULL,
 )
-=======
-    customerUsername    VARCHAR(25) NOT NULL,
-    sellerID            INTEGER NOT NULL,
-    type                VARCHAR(10) NOT NULL,
-    date                DATE,
-    status              VARCHAR(25) NOT NULL,
-    FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE
-);
 
 CREATE TABLE seller(
     id              SERIAL PRIMARY KEY,
@@ -61,4 +55,3 @@ CREATE TABLE order(
     FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE
     FOREIGN KEY (cartID) REFERENCES cart(id) ON DELETE CASCADE
 );
->>>>>>> 99a6b90a4452157114e308bb72429ebebbab97f2
