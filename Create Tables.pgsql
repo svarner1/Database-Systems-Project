@@ -40,17 +40,16 @@ CREATE TABLE cart (
     FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE
 );
 
-CREATE TABLE orders (
-    id                  SERIAL PRIMARY KEY,
-    cartID              INTEGER NOT NULL,
-    customerUsername    VARCHAR(25) NOT NULL,
-    date                DATE,
-    quantity            INTEGER NOT NULL,
-    totalPrice          Float(2) NOT NULL,
-    shippingAddress     TEXT NOT NULL,
-    FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE,
-    FOREIGN KEY (cartID) REFERENCES cart(id) ON DELETE CASCADE
-);
+-- CREATE TABLE orders (
+--     id                  SERIAL PRIMARY KEY,
+--     cartID              INTEGER NOT NULL,
+--     customerUsername    VARCHAR(25) NOT NULL,
+--     date                DATE,
+--     totalPrice          Float(2) NOT NULL,
+--     shippingAddress     TEXT NOT NULL,
+--     FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE,
+--     FOREIGN KEY (cartID) REFERENCES cart(id) ON DELETE CASCADE
+-- );
 
 CREATE TABLE order_history (
     orderID             INTEGER NOT NULL,
