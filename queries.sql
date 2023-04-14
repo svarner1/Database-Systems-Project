@@ -44,7 +44,7 @@ INNER JOIN c.id = o2.cartID
 INNER JOIN d.orderID = o2.orders
 INNER JOIN a.cartID = o2.cartID
 INNER JOIN a.productID = p.id
-WHERE f.user_id = 1
+WHERE  c.customerUsername = 'solocup'
 GROUP BY o.orderID
 ORDER BY o.orderID DESC;
 
