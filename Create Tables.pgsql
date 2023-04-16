@@ -66,8 +66,9 @@ CREATE TABLE adds_product (
 );
 
 
-CREATE TABLE payment(
-    id                  SERIAL PRIMARY KEY,customerUsername    VARCHAR(25) NOT NULL,
+CREATE TABLE payment (
+    id                  SERIAL PRIMARY KEY,
+    customerUsername    VARCHAR(25) NOT NULL,
     sellerID            INTEGER NOT NULL,
     type                VARCHAR(10) NOT NULL,
     date                DATE,
