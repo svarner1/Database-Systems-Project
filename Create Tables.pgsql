@@ -18,20 +18,18 @@ CREATE TABLE category (
     category_description TEXT NOT NULL
 );
 
-
 CREATE TABLE product (
     id                  SERIAL PRIMARY KEY,
     sellerID            INTEGER NOT NULL,
     image               TEXT NOT NULL,
     name                VARCHAR NOT NULL,
-    category            VARCHAR(50) NOT NULL,
+    category            VARCHAR(25) NOT NULL,
     rating              FLOAT,
     price               FLOAT(2) NOT NULL, 
     description         TEXT NOT NULL,
     FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE,
     FOREIGN KEY (category) REFERENCES category(category_name) ON DELETE CASCADE
 );
-
 
 CREATE TABLE cart (
     id                  SERIAL PRIMARY KEY,
@@ -65,22 +63,24 @@ CREATE TABLE adds_product (
     FOREIGN KEY (productID) REFERENCES product(id) ON DELETE CASCADE
 );
 
-
 CREATE TABLE payment(
-    id                  SERIAL PRIMARY KEY,customerUsername    VARCHAR(25) NOT NULL,
+    id                  SERIAL PRIMARY KEY,
+    customerUsername    VARCHAR(25) NOT NULL,
     sellerID            INTEGER NOT NULL,
     type                VARCHAR(10) NOT NULL,
     date                DATE,
     status              VARCHAR(25) NOT NULL,
-    FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE
-);
+    FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE,
+    FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE
 
+);
 
 CREATE TABLE seller_history(
     sellerID            INTEGER NOT NULL,
     orderID             INTEGER NOT NULL,
     revenue             INTEGER NOT NULL,
-    FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE
+    FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE,
+    FOREIGN KEY (orderID) REFERENCES orders(id) ON DELETE CASCADE
 );
 
 CREATE TABLE delivery (
@@ -89,6 +89,8 @@ CREATE TABLE delivery (
     orderID             INTEGER NOT NULL,
     delivery_status     TEXT NOT NULL,              
     sellerID            INTEGER NOT NULL,
+    FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE,
+    FOREIGN KEY (orderID) REFERENCES orders(id) ON DELETE CASCADE,
     FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE
 );
 
