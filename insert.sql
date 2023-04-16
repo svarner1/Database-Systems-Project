@@ -99,3 +99,40 @@ VALUES(4, 4),
 (3, 7),
 (7, 6),
 (10, 10);
+
+INSERT INTO payment (customerUsername, sellerID, type, date, status)
+VALUES ('solocup', 2, 'credit', '2023-04-11', 'approved'),
+('drinkdrank', 4, 'debit', '2023-02-25', 'approved'),
+('brewbeer', 1, 'debit', '2023-03-28', 'processing'),
+('shotsonme', 5, 'debit', '2023-03-09', 'processing'),
+('beerpong', 3, 'credit', '2023-01-21', 'approved'),
+('solocup', 4, 'credit', '2023-04-26', 'processing'),
+('drinkdrank', 2, 'debit', '2023-03-25', 'approved'),
+('brewbeer', 1, 'credit', '2023-03-03', 'processing'),
+('shotsonme', 3, 'debit', '2023-04-09', 'approved'),
+('beerpong', 5, 'credit', '2023-02-12', 'approved');
+
+
+INSERT INTO seller_history (sellerID, orderID, revenue)
+VALUES (2, 1, 30.59),
+(4, 9, 50.88),
+(1, 4, 15.26),
+(5, 6, 76.42),
+(3, 3, 100.15),
+(4, 7, 120.59),
+(2, 2, 25.88),
+(1, 8, 90.26),
+(3, 5, 176.42),
+(5, 10, 80.15);
+
+INSERT INTO delivery (customerUsername, orderID, delivery_status, sellerID)
+VALUES ('solocup', 1, 'delivered', 2),
+('drinkdrank', 9, 'on the way', 4),
+('brewbeer', 4, 'delivered', 1),
+('shotsonme', 6, 'delivered', 5),
+('beerpong', 3, 'on the way', 3),
+('solocup', 7, 'preparing shipment', 4),
+('drinkdrank',2, 'on the way', 2),
+('brewbeer', 8, 'delivered', 1),
+('shotsonme', 5, 'preparing shipment', 3),
+('beerpong', 10, 'on the way', 5);
