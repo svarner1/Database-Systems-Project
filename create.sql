@@ -18,7 +18,6 @@ CREATE TABLE category (
     category_description TEXT NOT NULL
 );
 
-
 CREATE TABLE product (
     id                  SERIAL PRIMARY KEY,
     sellerID            INTEGER NOT NULL,
@@ -93,12 +92,11 @@ CREATE TABLE payment(
 CREATE TABLE seller_history(
     sellerID            INTEGER NOT NULL,
     orderID             INTEGER NOT NULL,
-    revenue             INTEGER NOT NULL,
+    revenue             FLOAT NOT NULL,
     FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE,
     FOREIGN KEY (orderID) REFERENCES orders(id) ON DELETE CASCADE
 );
 
---Make orderID a foreign key
 CREATE TABLE delivery (
     deliveryID          SERIAL PRIMARY KEY,
     customerUsername    VARCHAR(25),

@@ -136,6 +136,7 @@ WHERE sellerID = 4;
 SELECT * FROM product 
 WHERE sellerID = 5;
 
+<<<<<<< HEAD
 -- product will be ordered from the most recently added to the customer's cart
 -- customer can see the quantity and adjust each added product (bullet point 7)
 SELECT c.id, p.name, p.price 
@@ -350,4 +351,114 @@ WHERE deliveryid = 15;
 SELECT orderid, delivery_status
 FROM delivery
 WHERE deliveryid = 16;
+=======
+--When the customer looks at the specific order from the history, they are able to see the products that were in the order.(Bullet pt 4)
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'solocup'AND o.id=1;
+
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'solocup'AND o.id=6;
+
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'shotsonme'AND o.id=9;
+
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'shotsonme'AND o.id=4;
+
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'brewbeer'AND o.id=3;
+
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'brewbeer'AND o.id=8;
+
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'drinkdrank'AND o.id=7;
+
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'drinkdrank'AND o.id=2;
+
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'beerpong'AND o.id=5;
+
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'beerpong'AND o.id=10;
+
+
+
+-- Retrieving a customer's order history (ordered from most to least recent)
+-- product, cost, delivery info needed
+SELECT  o2.customerUsername, 
+        o2.date, 
+        o2.totalPrice, 
+        p.name,
+        d.delivery_status,
+        c.size
+FROM order_history as o, orders as o2, adds_product as a, cart as c
+INNER JOIN o.orderID = o2.id  
+INNER JOIN c.id = o2.cartID
+INNER JOIN d.orderID = o2.orders
+INNER JOIN a.cartID = o2.cartID
+INNER JOIN a.productID = p.id
+WHERE  c.customerUsername = 'solocup'
+GROUP BY o.orderID
+ORDER BY o.orderID DESC;
+>>>>>>> 0eb4cbfb960a8298b25e4332cd4a4416f5021c3a
+
+-- Seller History - calculates and stores revenue
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 1;
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 2;
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 3;
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 4;
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 5;
+
+
+
+
+
+
 

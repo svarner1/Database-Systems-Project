@@ -25,6 +25,7 @@
 -- ('Hard Seltzers', 'A type of highball drink containing seltzer (carbonated water) alcohol, and often fruit flavorings. - 4-5%');
 
 
+<<<<<<< HEAD
 -- INSERT INTO product (sellerID, image, name, category, rating, price, description)
 -- VALUES(2, 'image_emaraldbay.png', 'Emerald Bay Pinot Noir', 'Wine', 4.5, 22.99, 'This California Pinot Noir is medium-bodied with flavors of cherry, raspberry, and a hint of oak'),
 -- (4, 'image_eldiablo.png','El Diablo Reposado Tequila', 'Tequila', 4.8, 55.99, 'Aged in oak barrels for six months, this tequila has a smooth and complex flavor with notes of caramel and vanilla.'),
@@ -39,6 +40,22 @@
 -- (2, 'mountanmist_image.png' ,'Mountain Mist Pale Ale', 'Beer', 4.4, 11.99, 'A light and refreshing pale ale with hoppy and citrusy flavors.'),
 -- (4, 'image_pineappleexpress.png', 'Pineapple Express Silver Tequila', 'Tequila', 4.7, 49.99, 'Made from 100% blue agave, this tequila is light and refreshing with flavors of pineapple and lime.'),
 -- (1, 'sunset_image.png' ,'Vineyard Sunset Chardonnay', 'Wine',4.6, 19.99, 'This California Chardonnay is medium-bodied with flavors of apple, pear, and a hint of vanilla.');
+=======
+INSERT INTO product (sellerID, image, name, category, rating, price, description)
+VALUES(2, 'image_emaraldbay.png', 'Emerald Bay Pinot Noir', 'Wine', 4.5, 22.99, 'This California Pinot Noir is medium-bodied with flavors of cherry, raspberry, and a hint of oak'),
+(4, 'image_eldiablo.png','El Diablo Reposado Tequila', 'Tequila', 4.8, 55.99, 'Aged in oak barrels for six months, this tequila has a smooth and complex flavor with notes of caramel and vanilla.'),
+(1, 'summerhaze_image.png', 'Summer Haze IPA', 'Beer', 4.3, 12.99, 'A hoppy and refreshing IPA with citrus and pine notes and a crisp finish.'),
+(5, 'snowqueen_image.png' ,'Snow Queen Vodka', 'Vodka', 4.7, 39.99, 'Distilled in Kazakhstan from organic wheat, this vodka has a smooth and clean taste with a hint of sweetness.'),
+(3, 'image_blackstonewhiskey.png', 'Blackstone Reserve Bourbon Whiskey', 'Whiskey', 4.6, 49.99, 'A rich and complex bourbon with flavors of caramel, vanilla, and toasted oak.'),
+(4, 'carribeansunset_image.png', 'Caribbean Sunset Spiced Rum', 'Rum', 4.2, 19.99, 'A smooth and spicy rum with flavors of cinnamon, nutmeg, and vanilla.'),
+(2, 'image_berryseltzer.png', 'Wild Berry Hard Seltzer', 'Hard Seltzers', 4.0, 14.99, 'This refreshing hard seltzer features the sweet and tart flavors of wild berries.'),
+(1, 'cascadecabernet_image.png', 'Cascade Ridge Cabernet Sauvignon', 'Wine', 4.8, 32.99, 'This Washington State Cabernet Sauvignon is full-bodied with rich flavors of blackberry, currant, and dark chocolate.'),
+(3, 'image_aztectequila.png', 'Aztec Gold Anejo Tequila', 'Tequila', 4.9, 59.99, 'Aged in oak barrels for two years, this tequila has a smooth and complex flavor with notes of caramel and oak.'),
+(5, 'snowyowl_image.png', 'Snowy Owl Vodka', 'Vodka', 4.5, 4.99, 'Distilled in Canada from organic wheat, this vodka has a clean and smooth taste with a hint of citrus.'),
+(2, 'mountanmist_image.png' ,'Mountain Mist Pale Ale', 'Beer', 4.4, 11.99, 'A light and refreshing pale ale with hoppy and citrusy flavors.'),
+(4, 'image_pineappleexpress.png', 'Pineapple Express Silver Tequila', 'Tequila', 4.7, 49.99, 'Made from 100% blue agave, this tequila is light and refreshing with flavors of pineapple and lime.'),
+(1, 'sunset_image.png' ,'Vineyard Sunset Chardonnay', 'Wine',4.6, 19.99, 'This California Chardonnay is medium-bodied with flavors of apple, pear, and a hint of vanilla.');
+>>>>>>> 0eb4cbfb960a8298b25e4332cd4a4416f5021c3a
 
 
 -- INSERT INTO cart (customerUsername, size)
