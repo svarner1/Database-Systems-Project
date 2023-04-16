@@ -57,11 +57,19 @@ CREATE TABLE order_history (
 );
 
 CREATE TABLE adds_product (
+    productInsertId      SERIAL PRIMARY KEY,
     cartID               INTEGER NOT NULL,
     productID            INTEGER NOT NULL,
     FOREIGN KEY (cartID) REFERENCES cart(id) ON DELETE CASCADE,
     FOREIGN KEY (productID) REFERENCES product(id) ON DELETE CASCADE
 );
+
+-- CREATE TABLE adds_product (
+--     cartID               INTEGER NOT NULL,
+--     productID            INTEGER NOT NULL,
+--     FOREIGN KEY (cartID) REFERENCES cart(id) ON DELETE CASCADE,
+--     FOREIGN KEY (productID) REFERENCES product(id) ON DELETE CASCADE
+-- );
 
 CREATE TABLE payment(
     id                  SERIAL PRIMARY KEY,

@@ -140,3 +140,21 @@ VALUES ('solocup', 1, 'delivered', 2),
 ('brewbeer', 8, 'delivered', 1),
 ('shotsonme', 5, 'preparing shipment', 3),
 ('beerpong', 10, 'on the way', 5);
+
+INSERT INTO delivery (customerUsername, orderID, delivery_status, sellerID)
+VALUES('solocup', 3, 'DELIVERED', 15),
+('solocup', 3, 'DELIVERED',13), 
+('solocup', 3, 'DELIVERED', 11),
+('drinkdrank', 4, 'DELIVERED', 12),
+('drinkdrank', 4, 'DELIVERED', 11),
+('drinkdrank', 4, 'DELIVERED', 12),
+('brewbeer', 5, 'ON THE WAY', 11),
+('shotsonme', 6, 'SHIPPED', 12),
+('beerpong', 7, 'ON THE WAY', 12),
+('solocup', 8, 'ON THE WAY', 15),
+('drinkdrank', 9, 'DELIVERED', 12),
+('drinkdrank', 9, 'DELIVERED', 15),
+('brewbeer', 10, 'SHIPPED', 13),
+('shotsonme', 11, 'SHIPPED', 15),
+('beerpong', 12, 'ON THE WAY', 14),
+('beerpong', 12, 'ON THE WAY', 12);

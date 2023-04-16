@@ -138,31 +138,219 @@ WHERE sellerID = 4;
 SELECT * FROM product 
 WHERE sellerID = 5;
 
--- Retrieving a customer's order history (ordered from most to least recent)
--- product, cost, delivery info needed
--- SELECT  o2.customerUsername, 
---         o2.date, 
---         o2.totalPrice, 
---         p.name,
---         d.delivery_status,
---         c.size
--- FROM order_history as o, orders as o2, adds_product as a, cart as c
--- INNER JOIN o.orderID = o2.id  
--- INNER JOIN c.id = o2.cartID
--- INNER JOIN d.orderID = o2.orders
--- INNER JOIN a.cartID = o2.cartID
--- INNER JOIN a.productID = p.id
--- WHERE  c.customerUsername = 'solocup'
--- GROUP BY o.orderID
--- ORDER BY o.orderID DESC;
 
--- SELECT  o2.customerUsername, 
---         o2.date, 
---         o2.totalPrice, 
---         p.name,
---         d.delivery_status,
---         c.size
--- FROM order_history as o, orders as o2, adds_product as a, cart as c, product as p, d as delivery_status
--- WHERE c.customerUsername = 'solocup' AND o.orderID = o2.id AND c.id = o2.cartID AND d.orderID = o2.orders AND a.cartID = o2.cartID AND a.productID = p.id
--- GROUP BY o.orderID
--- ORDER BY o.orderID DESC;
+-- product will be ordered from the most recently added to the customer's cart
+-- customer can see the quantity and adjust each added product (bullet point 7)
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 1
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 1
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 2
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 2
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 3
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 3
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 4
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 4
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 5
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 5
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 6
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 6
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 7
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 7
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 8
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 8
+GROUP BY c.size;
+-- 
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 9
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 9
+GROUP BY c.size;
+-- 
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 10
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 10
+GROUP BY c.size;
+
+-- DB table will maintain each customer’s information, including their username, 
+-- first and last name, date of birth, address, and preferred payment method.
+-- Information will be a part of a user’s account information (bullet point 8)
+SELECT * FROM customer 
+WHERE username = 'solocup';
+
+SELECT * FROM customer 
+WHERE username = 'brewbeer';
+
+SELECT * FROM customer 
+WHERE username = 'beerpong';
+
+SELECT * FROM customer 
+WHERE username = 'drinkdrank';
+
+SELECT * FROM customer 
+WHERE username = 'shotsonme';
+
+-- Some info can be retrieved when a user places an order. (bullet point 8)
+SELECT c.address, c.payment_method
+FROM customer as c
+WHERE username = 'solocup';
+
+SELECT c.address, c.payment_method
+FROM customer as c
+WHERE username = 'brewbeer';
+
+SELECT c.address, c.payment_method
+FROM customer as c
+WHERE username = 'beerpong';
+
+SELECT c.address, c.payment_method
+FROM customer as c
+WHERE username = 'drinkdrank';
+
+SELECT c.address, c.payment_method
+FROM customer as c 
+WHERE username = 'shotsonme';
+
+-- Sellers and customers can track the delivery status of orders. 
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 1;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 2;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 3;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 4;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 5;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 6;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 7;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 8;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 9;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 10;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 11;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 12;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 13;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 14;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 15;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 16;
+

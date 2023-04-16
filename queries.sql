@@ -287,8 +287,67 @@ FROM customer as c
 WHERE username = 'shotsonme';
 
 -- Sellers and customers can track the delivery status of orders. 
--- The value status will be updatd based on the values of both the expectedDate and dateDelivered (bullet point 10)
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 1;
 
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 2;
 
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 3;
 
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 4;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 5;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 6;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 7;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 8;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 9;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 10;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 11;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 12;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 13;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 14;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 15;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 16;
 
