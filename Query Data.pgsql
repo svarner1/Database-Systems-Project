@@ -137,7 +137,6 @@ WHERE sellerID = 4;
 SELECT * FROM product 
 WHERE sellerID = 5;
 
-<<<<<<< HEAD
 
 -- product will be ordered from the most recently added to the customer's cart
 -- customer can see the quantity and adjust each added product (bullet point 7)
@@ -353,7 +352,6 @@ WHERE deliveryid = 15;
 SELECT orderid, delivery_status
 FROM delivery
 WHERE deliveryid = 16;
-=======
 --When the customer looks at the specific order from the history, they are able to see the products that were in the order.(Bullet pt 4)
 SELECT o.id, o.customerusername, p.name
 FROM adds_product as a
@@ -444,5 +442,4 @@ WHERE customerUsername = 'beerpong'AND o.id=10;
 -- WHERE c.customerUsername = 'solocup' AND o.orderID = o2.id AND c.id = o2.cartID AND d.orderID = o2.orders AND a.cartID = o2.cartID AND a.productID = p.id
 -- GROUP BY o.orderID
 -- ORDER BY o.orderID DESC;
->>>>>>> 0eb4cbfb960a8298b25e4332cd4a4416f5021c3a
 
