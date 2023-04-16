@@ -28,7 +28,7 @@ VALUES ('Wine', 'An alcoholic drink typically made from fermented grapes. - 5-16
 INSERT INTO product (sellerID, image, name, category, rating, price, description)
 VALUES(2, 'image_emaraldbay.png', 'Emerald Bay Pinot Noir', 'Wine', 4.5, 22.99, 'This California Pinot Noir is medium-bodied with flavors of cherry, raspberry, and a hint of oak'),
 (4, 'image_eldiablo.png','El Diablo Reposado Tequila', 'Tequila', 4.8, 55.99, 'Aged in oak barrels for six months, this tequila has a smooth and complex flavor with notes of caramel and vanilla.'),
-( 1, 'summerhaze_image.png', 'Summer Haze IPA', 'Beer', 4.3, 12.99, 'A hoppy and refreshing IPA with citrus and pine notes and a crisp finish.'),
+(1, 'summerhaze_image.png', 'Summer Haze IPA', 'Beer', 4.3, 12.99, 'A hoppy and refreshing IPA with citrus and pine notes and a crisp finish.'),
 (5, 'snowqueen_image.png' ,'Snow Queen Vodka', 'Vodka', 4.7, 39.99, 'Distilled in Kazakhstan from organic wheat, this vodka has a smooth and clean taste with a hint of sweetness.'),
 (3, 'image_blackstonewhiskey.png', 'Blackstone Reserve Bourbon Whiskey', 'Whiskey', 4.6, 49.99, 'A rich and complex bourbon with flavors of caramel, vanilla, and toasted oak.'),
 (4, 'carribeansunset_image.png', 'Caribbean Sunset Spiced Rum', 'Rum', 4.2, 19.99, 'A smooth and spicy rum with flavors of cinnamon, nutmeg, and vanilla.'),

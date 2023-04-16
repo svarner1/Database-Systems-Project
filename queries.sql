@@ -217,3 +217,31 @@ WHERE  c.customerUsername = 'solocup'
 GROUP BY o.orderID
 ORDER BY o.orderID DESC;
 
+-- Seller History - calculates and stores revenue
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 1;
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 2;
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 3;
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 4;
+
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 5;
+
+
+
+
+
+
+
