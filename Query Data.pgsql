@@ -220,7 +220,7 @@ FROM seller_history as sh
 WHERE sh.sellerID = 5;
 
 
--- -- FQ 7:product will be ordered from the most recently added to the customer's cart customer can see the quantity and adjust each added product 
+-- FQ 7:product will be ordered from the most recently added to the customer's cart customer can see the quantity and adjust each added product 
 SELECT c.id, p.name, p.price 
 FROM product as p, cart as c, adds_product as a
 WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 1
@@ -429,27 +429,3 @@ WHERE deliveryid = 9;
 SELECT orderid, delivery_status
 FROM delivery
 WHERE deliveryid = 10;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 11;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 12;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 13;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 14;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 15;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 16;
