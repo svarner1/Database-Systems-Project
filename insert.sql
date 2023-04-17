@@ -28,7 +28,7 @@ VALUES ('Wine', 'An alcoholic drink typically made from fermented grapes. - 5-16
 INSERT INTO product (sellerID, image, name, category, rating, price, description)
 VALUES(2, 'image_emaraldbay.png', 'Emerald Bay Pinot Noir', 'Wine', 4.5, 22.99, 'This California Pinot Noir is medium-bodied with flavors of cherry, raspberry, and a hint of oak'),
 (4, 'image_eldiablo.png','El Diablo Reposado Tequila', 'Tequila', 4.8, 55.99, 'Aged in oak barrels for six months, this tequila has a smooth and complex flavor with notes of caramel and vanilla.'),
-( 1, 'summerhaze_image.png', 'Summer Haze IPA', 'Beer', 4.3, 12.99, 'A hoppy and refreshing IPA with citrus and pine notes and a crisp finish.'),
+(1, 'summerhaze_image.png', 'Summer Haze IPA', 'Beer', 4.3, 12.99, 'A hoppy and refreshing IPA with citrus and pine notes and a crisp finish.'),
 (5, 'snowqueen_image.png' ,'Snow Queen Vodka', 'Vodka', 4.7, 39.99, 'Distilled in Kazakhstan from organic wheat, this vodka has a smooth and clean taste with a hint of sweetness.'),
 (3, 'image_blackstonewhiskey.png', 'Blackstone Reserve Bourbon Whiskey', 'Whiskey', 4.6, 49.99, 'A rich and complex bourbon with flavors of caramel, vanilla, and toasted oak.'),
 (4, 'carribeansunset_image.png', 'Caribbean Sunset Spiced Rum', 'Rum', 4.2, 19.99, 'A smooth and spicy rum with flavors of cinnamon, nutmeg, and vanilla.'),
@@ -83,27 +83,36 @@ VALUES(1,'solocup'),
 INSERT INTO adds_product (cartID, productID)
 VALUES(4, 4),
 (4, 7),
+(4, 9),
 (9, 10),
 (9, 8),
-(6, 9),
+(6, 5),
+(6, 1),
+(6, 6),
+(6, 13),
+(6, 4),
+(6, 2),
 (1, 1),
-(1, 8),
-(1 ,2),
+(1, 2),
 (8, 1),
 (8, 9),
+(8, 13),
 (2, 2),
-(2, 6),
+(2, 1),
+(2, 8),
+(2, 4),
+(2, 3),
 (5, 3),
 (3, 4),
 (3, 1),
 (3, 7),
 (7, 6),
 (10, 10);
+(10, 11);
+(10, 3);
+(10, 7);
+(10, 1);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0eb4cbfb960a8298b25e4332cd4a4416f5021c3a
 INSERT INTO payment (customerUsername, sellerID, type, date, status)
 VALUES ('solocup', 2, 'credit', '2023-04-11', 'approved'),
 ('drinkdrank', 4, 'debit', '2023-02-25', 'approved'),
@@ -140,25 +149,16 @@ VALUES ('solocup', 1, 'delivered', 2),
 ('brewbeer', 8, 'delivered', 1),
 ('shotsonme', 5, 'preparing shipment', 3),
 ('beerpong', 10, 'on the way', 5);
-<<<<<<< HEAD
 
 
 INSERT INTO delivery (customerUsername, orderID, delivery_status, sellerID)
-VALUES('solocup', 3, 'DELIVERED', 15),
-('solocup', 3, 'DELIVERED',13), 
-('solocup', 3, 'DELIVERED', 11),
-('drinkdrank', 4, 'DELIVERED', 12),
-('drinkdrank', 4, 'DELIVERED', 11),
-('drinkdrank', 4, 'DELIVERED', 12),
-('brewbeer', 5, 'ON THE WAY', 11),
-('shotsonme', 6, 'SHIPPED', 12),
-('beerpong', 7, 'ON THE WAY', 12),
-('solocup', 8, 'ON THE WAY', 15),
-('drinkdrank', 9, 'DELIVERED', 12),
-('drinkdrank', 9, 'DELIVERED', 15),
-('brewbeer', 10, 'SHIPPED', 13),
-('shotsonme', 11, 'SHIPPED', 15),
-('beerpong', 12, 'ON THE WAY', 14),
-('beerpong', 12, 'ON THE WAY', 12);
-=======
->>>>>>> 0eb4cbfb960a8298b25e4332cd4a4416f5021c3a
+VALUES ('solocup', 1, 'DELIVERED', 2),
+('shotsonme', 9, 'DELIVERED', 4),
+('shotsonme', 4, 'ON THE WAY', 1),
+('solocup', 6, 'SHIPPED', 5),
+('brewbeer', 3, 'ON THE WAY', 3),
+('drinkdrank', 7, 'SHIPPED', 4),
+('drinkdrank', 2, 'DELIVERED', 2),
+('brewbeer', 8, 'ON THE WAY', 1),
+('beerpong', 5, 'SHIPPED', 3),
+('beerpong', 10, 'SHIPPED', 5);
