@@ -221,114 +221,114 @@ WHERE sh.sellerID = 5;
 
 
 -- -- FQ 7:product will be ordered from the most recently added to the customer's cart customer can see the quantity and adjust each added product 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 1
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 1
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 1
--- GROUP BY c.size;
--- --
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 1
+GROUP BY c.size;
+--
 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 2
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 2
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 2
--- GROUP BY c.size;
--- --
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 2
+GROUP BY c.size;
+--
 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 3
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 3
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 3
--- GROUP BY c.size;
--- --
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 3
+GROUP BY c.size;
+--
 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 4
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 4
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 4
--- GROUP BY c.size;
--- --
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 4
+GROUP BY c.size;
+--
 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 5
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 5
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 5
--- GROUP BY c.size;
--- --
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 5
+GROUP BY c.size;
+--
 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 6
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 6
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 6
--- GROUP BY c.size;
--- --
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 6
+GROUP BY c.size;
+--
 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 7
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 7
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 7
--- GROUP BY c.size;
--- --
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 7
+GROUP BY c.size;
+--
 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 8
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 8
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 8
--- GROUP BY c.size;
--- -- 
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 8
+GROUP BY c.size;
+-- 
 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 9
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 9
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 9
--- GROUP BY c.size;
--- -- 
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 9
+GROUP BY c.size;
+-- 
 
--- SELECT c.id, p.name, p.price 
--- FROM product as p, cart as c, adds_product as a
--- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 10
--- ORDER BY a.productinsertid DESC;
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 10
+ORDER BY a.productinsertid DESC;
 
--- SELECT SUM(p.price), c.size
--- FROM product as p, adds_product as a, cart as c
--- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 10
--- GROUP BY c.size;
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 10
+GROUP BY c.size;
 
 
 
