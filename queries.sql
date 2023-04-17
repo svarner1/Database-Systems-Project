@@ -205,7 +205,143 @@ FROM seller_history as sh
 WHERE sh.sellerID = 5;
 
 
--- FQ 9: Retrieving information about seller (bullet point 9)
+-- FQ 7:product will be ordered from the most recently added to the customer's cart customer can see the quantity and adjust each added product 
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 1
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 1
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 2
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 2
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 3
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 3
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 4
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 4
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 5
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 5
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 6
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 6
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 7
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 7
+GROUP BY c.size;
+--
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 8
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 8
+GROUP BY c.size;
+-- 
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 9
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 9
+GROUP BY c.size;
+-- 
+
+SELECT c.id, p.name, p.price 
+FROM product as p, cart as c, adds_product as a
+WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 10
+ORDER BY a.productinsertid DESC;
+
+SELECT SUM(p.price), c.size
+FROM product as p, adds_product as a, cart as c
+WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 10
+GROUP BY c.size;
+
+
+
+-- FQ 8: Some info can be retrieved when a user places an order.
+SELECT c.address, c.payment_method
+FROM customer as c
+WHERE username = 'solocup';
+
+SELECT c.address, c.payment_method
+FROM customer as c
+WHERE username = 'brewbeer';
+
+SELECT c.address, c.payment_method
+FROM customer as c
+WHERE username = 'beerpong';
+
+SELECT c.address, c.payment_method
+FROM customer as c
+WHERE username = 'drinkdrank';
+
+SELECT c.address, c.payment_method
+FROM customer as c 
+WHERE username = 'shotsonme';
+
+
+
+
+-- FQ 9: Retrieving information about seller
 SELECT * FROM seller 
 WHERE id = 1;
 
@@ -221,7 +357,7 @@ WHERE id = 4;
 SELECT * FROM seller 
 WHERE id = 5;
 
--- FQ 9: Retrieving all products offered by a particular seller (bullet point 9)
+-- FQ 9: Retrieving all products offered by a particular seller
 SELECT * FROM product 
 WHERE sellerID = 1;
 
@@ -236,6 +372,72 @@ WHERE sellerID = 4;
 
 SELECT * FROM product 
 WHERE sellerID = 5;
+
+
+-- FQ 10: Sellers and customers can track the delivery status of orders. 
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 1;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 2;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 3;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 4;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 5;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 6;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 7;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 8;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 9;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 10;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 11;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 12;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 13;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 14;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 15;
+
+SELECT orderid, delivery_status
+FROM delivery
+WHERE deliveryid = 16;
 
 
 
