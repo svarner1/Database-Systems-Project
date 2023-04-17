@@ -79,7 +79,7 @@ CREATE TABLE payment(
 CREATE TABLE seller_history(
     sellerID            INTEGER NOT NULL,
     orderID             INTEGER NOT NULL,
-    revenue             INTEGER NOT NULL,
+    revenue             FLOAT NOT NULL,
     FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE,
     FOREIGN KEY (orderID) REFERENCES orders(id) ON DELETE CASCADE
 );

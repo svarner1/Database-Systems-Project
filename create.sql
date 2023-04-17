@@ -31,12 +31,6 @@ CREATE TABLE product (
     FOREIGN KEY (category) REFERENCES category(category_name) ON DELETE CASCADE
 );
 
--- CREATE TABLE cart (
---     id                  SERIAL PRIMARY KEY,
---     customerUsername    VARCHAR(50) NOT NULL,
---     size                INTEGER NOT NULL,
---     FOREIGN KEY (customerUsername) REFERENCES customer(username) ON DELETE CASCADE
--- );
 
 CREATE TABLE cart (
     id                  SERIAL PRIMARY KEY,
@@ -71,6 +65,7 @@ CREATE TABLE adds_product (
     FOREIGN KEY (productID) REFERENCES product(id) ON DELETE CASCADE
 );
 
+
 CREATE TABLE payment(
     id                  SERIAL PRIMARY KEY,
     customerUsername    VARCHAR(25) NOT NULL,
@@ -85,7 +80,7 @@ CREATE TABLE payment(
 CREATE TABLE seller_history(
     sellerID            INTEGER NOT NULL,
     orderID             INTEGER NOT NULL,
-    revenue             FLOAT NOT NULL,
+    revenue             FLOAT(2) NOT NULL,
     FOREIGN KEY (sellerID) REFERENCES seller(id) ON DELETE CASCADE,
     FOREIGN KEY (orderID) REFERENCES orders(id) ON DELETE CASCADE
 );

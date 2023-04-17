@@ -1,21 +1,21 @@
---When the customer enters the website, they can see the list of products along with the image, the price, the rating, and the seller's brandname. (Bullet pt 1)
+-- FQ 1: When the customer enters the website, they can see the list of products along with the image, the price, the rating, and the seller's brandname.
 SELECT p.name, p.image, p.rating, p.price,s.brandname
 FROM product AS p, seller AS s
 WHERE p.sellerID = s.id;
 
--- They will be allowed to filter the view of the products by the highest rating. (Bullet pt 1)
+-- FQ 1: They will be allowed to filter the view of the products by the highest rating.
 SELECT p.name, p.image, p.rating, p.price, s.brandname
 FROM product AS p, seller AS s
 WHERE p.sellerID = s.id
 ORDER BY p.rating DESC;
 
--- They will be allowed to filter the view of the products from low to the highest price (Bullet pt 1)
+-- FQ 1: They will be allowed to filter the view of the products from low to the highest price.
 SELECT p.name, p.image, p.rating, p.price, s.brandname
 FROM product AS p, seller AS s
 WHERE p.sellerID = s.id
 ORDER BY p.price ASC;
 
---They will be allowed to filter the view of the products from a specific seller. (Bullet pt 1)
+-- FQ 1: They will be allowed to filter the view of the products from a specific seller. 
 SELECT p.name, p.image, p.rating, p.price, s.brandname
 FROM product AS p, seller AS s
 WHERE p.sellerID = s.id AND s.brandName ='ElectricVodka';
@@ -37,7 +37,7 @@ FROM product AS p, seller AS s
 WHERE p.sellerID = s.id AND s.brandName ='SeltzersRUS';
 
 
---The customer also has the option to view the products by a particular category. This will show the customer the specific products that are part of the category chosen and the seller's brandname. (Bullet pt 2) 
+-- FQ 2: The customer also has the option to view the products by a particular category. This will show the customer the specific products that are part of the category chosen and the seller's brandname.
 SELECT p.name, p.image, p.rating, p.price, p.category, s.brandname
 FROM product AS p, category AS c, seller AS s
 WHERE c.category_name = 'Rum' AND p.category = c.category_name AND p.sellerID = s.id;
@@ -68,7 +68,7 @@ WHERE c.category_name = 'Hard Seltzers' AND p.category = c.category_name AND p.s
 
 
 
---A customer’s order history will be ordered from most recent to least recent. The details for each order will include specific information related to the order(total cost, order date) and delivery info. (Bullet pt 3)
+-- FQ 3 :A customer’s order history will be ordered from most recent to least recent. The details for each order will include specific information related to the order(total cost, order date) and delivery info.
 SELECT o.id, o.customerusername , o.totalprice, c.size, o.date
 FROM orders as o
 INNER JOIN order_history oh ON o.id = oh.orderid
@@ -105,169 +105,234 @@ WHERE o.customerusername = 'shotsonme'
 ORDER BY o.date DESC;
 
 
--- Retrieving information about seller (bullet point 9)
-SELECT * FROM seller 
-WHERE id = 1;
+--FQ 4: When the customer looks at the specific order from the history, they are able to see the products that were in the order.
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'solocup'AND o.id=1;
 
-SELECT * FROM seller 
-WHERE id = 2;
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'solocup'AND o.id=6;
 
-SELECT * FROM seller 
-WHERE id = 3;
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'shotsonme'AND o.id=9;
 
-SELECT * FROM seller 
-WHERE id = 4;
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'shotsonme'AND o.id=4;
 
-SELECT * FROM seller 
-WHERE id = 5;
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'brewbeer'AND o.id=3;
 
--- Retrieving all products offered by a particular seller (bullet point 9)
-SELECT * FROM product 
-WHERE sellerID = 1;
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'brewbeer'AND o.id=8;
 
-SELECT * FROM product 
-WHERE sellerID = 2;
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'drinkdrank'AND o.id=7;
 
-SELECT * FROM product 
-WHERE sellerID = 3;
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'drinkdrank'AND o.id=2;
 
-SELECT * FROM product 
-WHERE sellerID = 4;
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'beerpong'AND o.id=5;
 
-SELECT * FROM product 
-WHERE sellerID = 5;
+SELECT o.id, o.customerusername, p.name
+FROM adds_product as a
+INNER JOIN orders o ON a.cartID = o.id
+INNER JOIN product p ON a.productID = p.id
+WHERE customerUsername = 'beerpong'AND o.id=10;
 
 
--- product will be ordered from the most recently added to the customer's cart
--- customer can see the quantity and adjust each added product (bullet point 7)
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 1
-ORDER BY a.productinsertid DESC;
+-- FQ 5:A seller’s sell history will be ordered by most to least recent. 
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 1
+ORDER BY o.date DESC;
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 1
-GROUP BY c.size;
---
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 2
+ORDER BY o.date DESC;
 
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 2
-ORDER BY a.productinsertid DESC;
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 3
+ORDER BY o.date DESC;
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 2
-GROUP BY c.size;
---
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 4
+ORDER BY o.date DESC;
 
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 3
-ORDER BY a.productinsertid DESC;
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 5
+ORDER BY o.date DESC;
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 3
-GROUP BY c.size;
---
+-- -- FQ 6:As part of a seller’s sell history, the total profit a seller makes is calculated and stored as revenue
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 1;
 
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 4
-ORDER BY a.productinsertid DESC;
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 2;
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 4
-GROUP BY c.size;
---
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 3;
 
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 5
-ORDER BY a.productinsertid DESC;
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 4;
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 5
-GROUP BY c.size;
---
+SELECT SUM(sh.revenue)
+FROM seller_history as sh
+WHERE sh.sellerID = 5;
 
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 6
-ORDER BY a.productinsertid DESC;
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 6
-GROUP BY c.size;
---
+-- -- FQ 7:product will be ordered from the most recently added to the customer's cart customer can see the quantity and adjust each added product 
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 1
+-- ORDER BY a.productinsertid DESC;
 
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 7
-ORDER BY a.productinsertid DESC;
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 1
+-- GROUP BY c.size;
+-- --
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 7
-GROUP BY c.size;
---
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 2
+-- ORDER BY a.productinsertid DESC;
 
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 8
-ORDER BY a.productinsertid DESC;
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 2
+-- GROUP BY c.size;
+-- --
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 8
-GROUP BY c.size;
--- 
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 3
+-- ORDER BY a.productinsertid DESC;
 
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 9
-ORDER BY a.productinsertid DESC;
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 3
+-- GROUP BY c.size;
+-- --
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 9
-GROUP BY c.size;
--- 
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 4
+-- ORDER BY a.productinsertid DESC;
 
-SELECT c.id, p.name, p.price 
-FROM product as p, cart as c, adds_product as a
-WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 10
-ORDER BY a.productinsertid DESC;
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 4
+-- GROUP BY c.size;
+-- --
 
-SELECT SUM(p.price), c.size
-FROM product as p, adds_product as a, cart as c
-WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 10
-GROUP BY c.size;
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 5
+-- ORDER BY a.productinsertid DESC;
 
--- DB table will maintain each customer’s information, including their username, 
--- first and last name, date of birth, address, and preferred payment method.
--- Information will be a part of a user’s account information (bullet point 8)
-SELECT * FROM customer 
-WHERE username = 'solocup';
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 5
+-- GROUP BY c.size;
+-- --
 
-SELECT * FROM customer 
-WHERE username = 'brewbeer';
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 6
+-- ORDER BY a.productinsertid DESC;
 
-SELECT * FROM customer 
-WHERE username = 'beerpong';
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 6
+-- GROUP BY c.size;
+-- --
 
-SELECT * FROM customer 
-WHERE username = 'drinkdrank';
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 7
+-- ORDER BY a.productinsertid DESC;
 
-SELECT * FROM customer 
-WHERE username = 'shotsonme';
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 7
+-- GROUP BY c.size;
+-- --
 
--- Some info can be retrieved when a user places an order. (bullet point 8)
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 8
+-- ORDER BY a.productinsertid DESC;
+
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 8
+-- GROUP BY c.size;
+-- -- 
+
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 9
+-- ORDER BY a.productinsertid DESC;
+
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 9
+-- GROUP BY c.size;
+-- -- 
+
+-- SELECT c.id, p.name, p.price 
+-- FROM product as p, cart as c, adds_product as a
+-- WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 10
+-- ORDER BY a.productinsertid DESC;
+
+-- SELECT SUM(p.price), c.size
+-- FROM product as p, adds_product as a, cart as c
+-- WHERE a.productID = p.id AND a.cartID = c.id AND c.id = 10
+-- GROUP BY c.size;
+
+
+
+-- -- FQ 8: Some info can be retrieved when a user places an order.
 SELECT c.address, c.payment_method
 FROM customer as c
 WHERE username = 'solocup';
@@ -288,7 +353,43 @@ SELECT c.address, c.payment_method
 FROM customer as c 
 WHERE username = 'shotsonme';
 
--- Sellers and customers can track the delivery status of orders. 
+
+
+
+-- -- FQ 9: Retrieving information about seller
+SELECT * FROM seller 
+WHERE id = 1;
+
+SELECT * FROM seller 
+WHERE id = 2;
+
+SELECT * FROM seller 
+WHERE id = 3;
+
+SELECT * FROM seller 
+WHERE id = 4;
+
+SELECT * FROM seller 
+WHERE id = 5;
+
+-- -- FQ 9: Retrieving all products offered by a particular seller
+SELECT * FROM product 
+WHERE sellerID = 1;
+
+SELECT * FROM product 
+WHERE sellerID = 2;
+
+SELECT * FROM product 
+WHERE sellerID = 3;
+
+SELECT * FROM product 
+WHERE sellerID = 4;
+
+SELECT * FROM product 
+WHERE sellerID = 5;
+
+
+-- -- FQ 10: Sellers and customers can track the delivery status of orders. 
 SELECT orderid, delivery_status
 FROM delivery
 WHERE deliveryid = 1;
@@ -352,94 +453,3 @@ WHERE deliveryid = 15;
 SELECT orderid, delivery_status
 FROM delivery
 WHERE deliveryid = 16;
---When the customer looks at the specific order from the history, they are able to see the products that were in the order.(Bullet pt 4)
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'solocup'AND o.id=1;
-
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'solocup'AND o.id=6;
-
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'shotsonme'AND o.id=9;
-
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'shotsonme'AND o.id=4;
-
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'brewbeer'AND o.id=3;
-
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'brewbeer'AND o.id=8;
-
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'drinkdrank'AND o.id=7;
-
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'drinkdrank'AND o.id=2;
-
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'beerpong'AND o.id=5;
-
-SELECT o.id, o.customerusername, p.name
-FROM adds_product as a
-INNER JOIN orders o ON a.cartID = o.id
-INNER JOIN product p ON a.productID = p.id
-WHERE customerUsername = 'beerpong'AND o.id=10;
-
-
--- Retrieving a customer's order history (ordered from most to least recent)
--- product, cost, delivery info needed
--- SELECT  o2.customerUsername, 
---         o2.date, 
---         o2.totalPrice, 
---         p.name,
---         d.delivery_status,
---         c.size
--- FROM order_history as o, orders as o2, adds_product as a, cart as c
--- INNER JOIN o.orderID = o2.id  
--- INNER JOIN c.id = o2.cartID
--- INNER JOIN d.orderID = o2.orders
--- INNER JOIN a.cartID = o2.cartID
--- INNER JOIN a.productID = p.id
--- WHERE  c.customerUsername = 'solocup'
--- GROUP BY o.orderID
--- ORDER BY o.orderID DESC;
-
--- SELECT  o2.customerUsername, 
---         o2.date, 
---         o2.totalPrice, 
---         p.name,
---         d.delivery_status,
---         c.size
--- FROM order_history as o, orders as o2, adds_product as a, cart as c, product as p, d as delivery_status
--- WHERE c.customerUsername = 'solocup' AND o.orderID = o2.id AND c.id = o2.cartID AND d.orderID = o2.orders AND a.cartID = o2.cartID AND a.productID = p.id
--- GROUP BY o.orderID
--- ORDER BY o.orderID DESC;
-
