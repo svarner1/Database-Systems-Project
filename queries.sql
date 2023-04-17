@@ -166,22 +166,36 @@ INNER JOIN orders o ON a.cartID = o.id
 INNER JOIN product p ON a.productID = p.id
 WHERE customerUsername = 'beerpong'AND o.id=10;
 
--- FQ 5:Retrieving a customer's order history (ordered from most to least recent) product, cost, delivery info needed
-SELECT  o2.customerUsername, 
-        o2.date, 
-        o2.totalPrice, 
-        p.name,
-        d.delivery_status,
-        c.size
-FROM order_history as o, orders as o2, adds_product as a, cart as c
-INNER JOIN o.orderID = o2.id  
-INNER JOIN c.id = o2.cartID
-INNER JOIN d.orderID = o2.orders
-INNER JOIN a.cartID = o2.cartID
-INNER JOIN a.productID = p.id
-WHERE  c.customerUsername = 'solocup'
-GROUP BY o.orderID
-ORDER BY o.orderID DESC;
+-- FQ 5:A seller’s sell history will be ordered by most to least recent. 
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 1
+ORDER BY o.date DESC;
+
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 2
+ORDER BY o.date DESC;
+
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 3
+ORDER BY o.date DESC;
+
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 4
+ORDER BY o.date DESC;
+
+SELECT s.sellerid, s.orderid, o.date
+FROM seller_history AS s
+INNER JOIN orders o ON s.orderID = o.id  
+WHERE s.sellerID = 5
+ORDER BY o.date DESC;
 
 -- FQ 6:As part of a seller’s sell history, the total profit a seller makes is calculated and stored as revenue
 SELECT SUM(sh.revenue)
