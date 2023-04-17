@@ -138,18 +138,6 @@ VALUES (2, 1, 30.59),
 (3, 5, 176.42),
 (5, 10, 80.15);
 
--- INSERT INTO delivery (customerUsername, orderID, delivery_status, sellerID)
--- VALUES ('solocup', 1, 'delivered', 2),
--- ('drinkdrank', 9, 'on the way', 4),
--- ('brewbeer', 4, 'delivered', 1),
--- ('shotsonme', 6, 'delivered', 5),
--- ('beerpong', 3, 'on the way', 3),
--- ('solocup', 7, 'preparing shipment', 4),
--- ('drinkdrank',2, 'on the way', 2),
--- ('brewbeer', 8, 'delivered', 1),
--- ('shotsonme', 5, 'preparing shipment', 3),
--- ('beerpong', 10, 'on the way', 5);
-
 
 INSERT INTO delivery (customerUsername, orderID, delivery_status, sellerID)
 VALUES ('solocup', 1, 'DELIVERED', 2),

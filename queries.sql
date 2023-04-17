@@ -415,31 +415,6 @@ SELECT orderid, delivery_status
 FROM delivery
 WHERE deliveryid = 10;
 
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 11;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 12;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 13;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 14;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 15;
-
-SELECT orderid, delivery_status
-FROM delivery
-WHERE deliveryid = 16;
-
-
 
 
 
