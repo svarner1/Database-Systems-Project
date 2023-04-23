@@ -54,32 +54,6 @@ VALUES('solocup', 2),
 ('shotsonme', 5);
 
 
-INSERT INTO orders (cartID, customerUsername, date, totalPrice, shippingAddress)
-VALUES(1,'solocup', '2023-04-11', 30.59 , '145 Lancaster Ln, SanFrancisco, CA'),
-(4, 'drinkdrank', '2023-02-25', 50.88,'688 Disney St, Orlando,FL'),
-(2,'brewbeer', '2023-03-28', 15.26, '123 Main St, New York, NY'),
-(5, 'shotsonme', '2023-03-09', 76.42, '898 Sesame St, Atlanta, GA'),
-(3, 'beerpong', '2023-01-21', 100.15 ,'118 Bridgeport St, St. Louis, MI'),
-(6,'solocup', '2023-04-26', 120.59 , '145 Lancaster Ln, SanFrancisco, CA'),
-(9, 'drinkdrank', '2023-03-25', 25.88,'688 Disney St, Orlando,FL'),
-(7,'brewbeer', '2023-03-03', 90.26, '123 Main St, New York, NY'),
-(10, 'shotsonme', '2023-04-09', 176.42, '898 Sesame St, Atlanta, GA'),
-(8, 'beerpong', '2023-02-12', 80.15 ,'118 Bridgeport St, St. Louis, MI');
-
-
-INSERT INTO order_history (orderID, customerUsername)
-VALUES(1,'solocup'),
-(9, 'shotsonme'),
-(4, 'shotsonme'),
-(6, 'solocup'),
-(3,'brewbeer'),
-(7, 'drinkdrank'),
-(2, 'drinkdrank'),
-(8, 'brewbeer'),
-(5, 'beerpong'),
-(10, 'beerpong');
-
-
 INSERT INTO adds_product (cartID, productID)
 VALUES(4, 4),
 (4, 7),
@@ -113,6 +87,7 @@ VALUES(4, 4),
 (10, 7),
 (10, 1);
 
+
 INSERT INTO payment (customerUsername, sellerID, type, date, status)
 VALUES ('solocup', 2, 'credit', '2023-04-11', 'approved'),
 ('drinkdrank', 4, 'debit', '2023-02-25', 'approved'),
@@ -124,6 +99,33 @@ VALUES ('solocup', 2, 'credit', '2023-04-11', 'approved'),
 ('brewbeer', 1, 'credit', '2023-03-03', 'processing'),
 ('shotsonme', 3, 'debit', '2023-04-09', 'approved'),
 ('beerpong', 5, 'credit', '2023-02-12', 'approved');
+
+
+
+INSERT INTO orders (cartID, customerUsername, date, totalPrice, shippingAddress)
+VALUES(1,'solocup', '2023-04-11', 30.59 , '145 Lancaster Ln, SanFrancisco, CA'),
+(4, 'drinkdrank', '2023-02-25', 50.88,'688 Disney St, Orlando,FL'),
+(2,'brewbeer', '2023-03-28', 15.26, '123 Main St, New York, NY'),
+(5, 'shotsonme', '2023-03-09', 76.42, '898 Sesame St, Atlanta, GA'),
+(3, 'beerpong', '2023-01-21', 100.15 ,'118 Bridgeport St, St. Louis, MI'),
+(6,'solocup', '2023-04-26', 120.59 , '145 Lancaster Ln, SanFrancisco, CA'),
+(9, 'drinkdrank', '2023-03-25', 25.88,'688 Disney St, Orlando,FL'),
+(7,'brewbeer', '2023-03-03', 90.26, '123 Main St, New York, NY'),
+(10, 'shotsonme', '2023-04-09', 176.42, '898 Sesame St, Atlanta, GA'),
+(8, 'beerpong', '2023-02-12', 80.15 ,'118 Bridgeport St, St. Louis, MI');
+
+
+INSERT INTO delivery (customerUsername, orderID, delivery_status, sellerID)
+VALUES ('solocup', 1, 'DELIVERED', 2),
+('shotsonme', 9, 'DELIVERED', 4),
+('shotsonme', 4, 'ON THE WAY', 1),
+('solocup', 6, 'SHIPPED', 5),
+('brewbeer', 3, 'ON THE WAY', 3),
+('drinkdrank', 7, 'SHIPPED', 4),
+('drinkdrank', 2, 'DELIVERED', 2),
+('brewbeer', 8, 'ON THE WAY', 1),
+('beerpong', 5, 'SHIPPED', 3),
+('beerpong', 10, 'SHIPPED', 5);
 
 
 INSERT INTO seller_history (sellerID, orderID, revenue)
@@ -139,14 +141,25 @@ VALUES (2, 1, 30.59),
 (5, 10, 80.15);
 
 
-INSERT INTO delivery (customerUsername, orderID, delivery_status, sellerID)
-VALUES ('solocup', 1, 'DELIVERED', 2),
-('shotsonme', 9, 'DELIVERED', 4),
-('shotsonme', 4, 'ON THE WAY', 1),
-('solocup', 6, 'SHIPPED', 5),
-('brewbeer', 3, 'ON THE WAY', 3),
-('drinkdrank', 7, 'SHIPPED', 4),
-('drinkdrank', 2, 'DELIVERED', 2),
-('brewbeer', 8, 'ON THE WAY', 1),
-('beerpong', 5, 'SHIPPED', 3),
-('beerpong', 10, 'SHIPPED', 5);
+
+INSERT INTO order_history (orderID, customerUsername)
+VALUES(1,'solocup'),
+(9, 'shotsonme'),
+(4, 'shotsonme'),
+(6, 'solocup'),
+(3,'brewbeer'),
+(7, 'drinkdrank'),
+(2, 'drinkdrank'),
+(8, 'brewbeer'),
+(5, 'beerpong'),
+(10, 'beerpong');
+
+
+
+
+
+
+
+
+
+

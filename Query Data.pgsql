@@ -37,7 +37,8 @@ FROM product AS p, seller AS s
 WHERE p.sellerID = s.id AND s.brandName ='SeltzersRUS';
 
 
--- FQ 2: The customer also has the option to view the products by a particular category. This will show the customer the specific products that are part of the category chosen and the seller's brandname.
+-- FQ 2: The customer has the option to view the products by a particular category. 
+--This will show the customer the specific products that are part of the category chosen and the seller.
 SELECT p.name, p.image, p.rating, p.price, p.category, s.brandname
 FROM product AS p, category AS c, seller AS s
 WHERE c.category_name = 'Rum' AND p.category = c.category_name AND p.sellerID = s.id;
@@ -68,7 +69,9 @@ WHERE c.category_name = 'Hard Seltzers' AND p.category = c.category_name AND p.s
 
 
 
--- FQ 3 :A customer’s order history will be ordered from most recent to least recent. The details for each order will include specific information related to the order(total cost, order date) and delivery info.
+-- FQ 3 :A customer’s order history will be ordered from most recent to least recent. 
+--The details for each order will include specific information related to the order(total cost, order date) 
+--and delivery info.
 SELECT o.id, o.customerusername , o.totalprice, c.size, o.date
 FROM orders as o
 INNER JOIN order_history oh ON o.id = oh.orderid
@@ -105,7 +108,8 @@ WHERE o.customerusername = 'shotsonme'
 ORDER BY o.date DESC;
 
 
---FQ 4: When the customer looks at the specific order from the history, they are able to see the products that were in the order.
+--FQ 4: When the customer clicks on the specific order from the history, 
+--they are able to see the products that were in the order.
 SELECT o.id, o.customerusername, p.name
 FROM adds_product as a
 INNER JOIN orders o ON a.cartID = o.id
@@ -167,7 +171,7 @@ INNER JOIN product p ON a.productID = p.id
 WHERE customerUsername = 'beerpong'AND o.id=10;
 
 
--- FQ 5:A seller’s sell history will be ordered by most to least recent. 
+-- FQ 5:A seller’s sell history will be ordered by most to least recently placed. 
 SELECT s.sellerid, s.orderid, o.date
 FROM seller_history AS s
 INNER JOIN orders o ON s.orderID = o.id  
@@ -198,7 +202,8 @@ INNER JOIN orders o ON s.orderID = o.id
 WHERE s.sellerID = 5
 ORDER BY o.date DESC;
 
--- -- FQ 6:As part of a seller’s sell history, the total profit a seller makes is calculated and stored as revenue
+-- FQ 6:As part of a seller’s sell history, the total profit a seller makes is calculated 
+--and stored as revenue.
 SELECT SUM(sh.revenue)
 FROM seller_history as sh
 WHERE sh.sellerID = 1;
@@ -220,7 +225,8 @@ FROM seller_history as sh
 WHERE sh.sellerID = 5;
 
 
--- FQ 7:product will be ordered from the most recently added to the customer's cart customer can see the quantity and adjust each added product 
+-- FQ 7:product will be ordered from the most recently added to the customer's cart.
+-- The customer can see the quantity and adjust each added product.
 SELECT c.id, p.name, p.price 
 FROM product as p, cart as c, adds_product as a
 WHERE a.cartID = c.id AND a.productID = p.id AND c.id = 1
@@ -332,7 +338,8 @@ GROUP BY c.size;
 
 
 
--- -- FQ 8: Some info can be retrieved when a user places an order.
+-- FQ 8: Some info (particularly an address and payment method) can be retrieved when a user 
+-- places an order.
 SELECT c.address, c.payment_method
 FROM customer as c
 WHERE username = 'solocup';
@@ -352,8 +359,6 @@ WHERE username = 'drinkdrank';
 SELECT c.address, c.payment_method
 FROM customer as c 
 WHERE username = 'shotsonme';
-
-
 
 
 -- -- FQ 9: Retrieving information about seller
