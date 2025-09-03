@@ -2,14 +2,14 @@
 
 ### Project Title: 99 Bottles  
 
-- [Final Report](https://www.canva.com/design/DAGx4gT3wN4/Rcu99Y61OQw0dc1gnCwJ7Q/edit?utm_content=DAGx4gT3wN4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
-- [ER Diagram](https://www.canva.com/design/DAGx4pAPErk/z4sByle2c39t5A5ikkmABA/edit?utm_content=DAGx4pAPErk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
-- [Entity Chart](https://docs.google.com/document/d/1OKBhcqoKlrLqWRJ670Ujz_SZSVd-7OuM5tn2DjYnzN0/edit?usp=sharing)  
+- [Final Report](https://docs.google.com/document/d/1OKBhcqoKlrLqWRJ670Ujz_SZSVd-7OuM5tn2DjYnzN0/edit?usp=sharing)  
+- [ER Diagram](https://www.canva.com/design/DAGx4gT3wN4/Rcu99Y61OQw0dc1gnCwJ7Q/edit?utm_content=DAGx4gT3wN4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
+- [Entity Chart](https://www.canva.com/design/DAGx4pAPErk/z4sByle2c39t5A5ikkmABA/edit?utm_content=DAGx4pAPErk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
 - [GitHub Repository](https://github.com/svarner1/Database-Systems-Project)  
 
 
 # Project Goal
-As part of the course Database Systems, our team worked on a semester-long group project to develop a database for a hypothetical system. We created a database for an e-commerce websit using **Postgresql** and **Visual Studio Code**.
+As part of the course Database Systems, our team worked on a semester-long group project to develop a database for a hypothetical system. We created a database for an e-commerce website using **PostgreSQL**, **SQL**, and **Visual Studio Code**.
 
 # Project Description
 
